@@ -4,6 +4,8 @@ const CROSS_UP = require("technicalindicators").CrossUp;
 const CROSS_DOWN = require("technicalindicators").CrossDown;
 const EMA = require("technicalindicators").EMA;
 
+const log = require("./logs/index.log");
+
 const fs = require("fs");
 
 // [time, open, high, low, close, volume,] = last_tick;
@@ -47,12 +49,8 @@ exports.end = (results, timeFrame, fileName, time) => {
       ------------------------------------------------------------------------------------- `
         );
     } else if (fileName) {
-        this.logIt(
-            fileName,
-            `${this.getTimeLocal(time)}
-      No results found for time-frame: ${timeFrame}
-      ------------------------------------------------------------------------------------- `
-        );
+        const text = `${this.getTimeLocal(time)}`;
+        this.writeToFile(text);
     }
 };
 
@@ -61,6 +59,16 @@ exports.logIt = (file, msg) => {
         encoding: "utf8",
         flag: "a+",
         mode: 0o666,
+    });
+};
+
+exports.writeToFile = (msg) => {
+    log.push(msg);
+    const text = `module.exports = ${JSON.stringify(log)};`;
+    fs.writeFile("./logs/index.log", text, (err) => {
+        if (err) {
+            return console.log(err);
+        }
     });
 };
 
