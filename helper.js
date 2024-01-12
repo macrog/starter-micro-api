@@ -18,9 +18,21 @@ exports.knowSureThingStrategy = (tickerArrayData) => {
     const lastCrossDown = common.getLastElementOfArray(crossDown);
 
     if (lastCrossUp && kri > 0) {
-        return true;
+        const ema = common.calculateEMA(close, 150);
+        const lastEma = common.getLastElementOfArray(ema);
+        const lastClose = common.getLastElementOfArray(close);
+        if (lastClose > lastEma) {
+            return true;
+        }
+        return false;
     } else if (lastCrossDown && kri < 0) {
-        return true;
+        const ema = common.calculateEMA(close, 150);
+        const lastEma = common.getLastElementOfArray(ema);
+        const lastClose = common.getLastElementOfArray(close);
+        if (lastClose < lastEma) {
+            return true;
+        }
+        return false;
     } else {
         return false;
     }
