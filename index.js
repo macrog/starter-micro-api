@@ -88,13 +88,7 @@ function getTickerValues() {
                                 );
                             }
 
-                            common.end(
-                                results,
-                                timeFrame,
-                                results.length === 0
-                                    ? undefined
-                                    : "logs/" + logFile
-                            );
+                            common.end(results, timeFrame, "logs/" + logFile);
                         }
                     } else {
                         if (
@@ -106,13 +100,7 @@ function getTickerValues() {
                                     (a, b) => b.volumeRatio - a.volumeRatio
                                 );
                             }
-                            common.end(
-                                results,
-                                timeFrame,
-                                results.length === 0
-                                    ? undefined
-                                    : "logs/" + logFile
-                            );
+                            common.end(results, timeFrame, "logs/" + logFile);
                         }
                     }
                 })

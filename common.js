@@ -32,16 +32,10 @@ exports.loading = (index, totalTickers) => {
 
 exports.end = (results, timeFrame, fileName, time) => {
     endTime = new Date();
-    let timeDiff = endTime - startTime; //in ms
-    // strip the ms
-    timeDiff /= 1000;
-
-    // get seconds
-    const seconds = Math.round(timeDiff);
 
     if (results.length && fileName) {
         console.log(
-            `Results number: ${results.length}, Took ${seconds} seconds. Finished on: ${endTime}`
+            `Results number: ${results.length}. Finished on: ${endTime}`
         );
         // console.table(results);
         const text =
