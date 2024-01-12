@@ -4,7 +4,7 @@ const CROSS_UP = require("technicalindicators").CrossUp;
 const CROSS_DOWN = require("technicalindicators").CrossDown;
 const EMA = require("technicalindicators").EMA;
 
-const log = require("./logs/index.log");
+const log = require("./logs/index.js");
 
 const fs = require("fs");
 

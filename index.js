@@ -1,6 +1,6 @@
 const express = require("express");
 const bybit = require("./bybit");
-const log = require("./logs/index.log");
+const log = require("./logs/index.js");
 
 const app = express();
 
