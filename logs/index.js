@@ -1,0 +1,1 @@
+module.exports = ["12/01/2024, 17:50:13, No results found for time-frame: 60","12/01/2024, 17:51:15","12/01/2024, 17:52:44"];
