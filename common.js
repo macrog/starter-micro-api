@@ -1,5 +1,7 @@
 const SMA = require("technicalindicators").SMA;
 const KST = require("technicalindicators").KST;
+const CROSS_UP = require("technicalindicators").CrossUp;
+const CROSS_DOWN = require("technicalindicators").CrossDown;
 
 const fs = require("fs");
 
@@ -102,4 +104,12 @@ exports.calculateKRI = (priceArray) => {
 
 exports.calculateSMA = (volumeArray, period = 20) => {
     return SMA.calculate({ period: period, values: volumeArray });
+};
+
+exports.calculateCrossUp = (input) => {
+    return CROSS_UP.calculate(input);
+};
+
+exports.calculateCrossDown = (input) => {
+    return CROSS_DOWN.calculate(input);
 };
